@@ -1,0 +1,31 @@
+﻿@using CoreProjeKamp.Controllers
+@using static CoreProjeKamp.Controllers.PersonTestController
+@model List<Class1>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h3>Api Test Sayfasıdır</h3>
+<br />
+<table class="table table-bordered">
+    <tr>
+    <td>#</td>
+    <td>Personel Adı</td>
+    <td>Sil</td>
+    <td>Düzenle</td>
+    </tr>
+    <tbody>
+        @foreach(var x in Model)
+        {
+            <tr>
+                <td>@x.Id</td>
+                <td>@x.NameSurname</td>
+                <td><a href="/PersonTest/deleteperson/@x.Id" class="btn btn-danger">Sil</a> </td>
+                <td><a href="/PersonTest/editperson/@x.Id" class="btn btn-warning">Düzenle</a> </td>
+            </tr>
+        }
+        <tr></tr>
+    </tbody>
+</table>
+<a href="/PersonTest/addperson/" class="btn btn-success">Yeni Personel</a>
+

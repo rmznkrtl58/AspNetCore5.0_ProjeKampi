@@ -1,0 +1,47 @@
+﻿@{
+    Layout = null;
+}
+<!--
+	Author: W3layouts
+	Author URL: http://w3layouts.com
+	License: Creative Commons Attribution 3.0 Unported
+	License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+@await Html.PartialAsync("headpartial")
+
+<body>
+	<!--Header-->
+
+	<header>
+		@await Html.PartialAsync("headertopmenu")
+
+		@await Html.PartialAsync("navbarpartial")
+	</header>
+	<!--//header-->
+	<!--/banner-->
+	<div class="banner-inner">
+	</div>
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item">
+			<a href="index.html">Home</a>
+		</li>
+		<li class="breadcrumb-item active">Blog3</li>
+	</ol>
+	<!--//banner-->
+	<!--/main-->
+	
+	@RenderBody()
+	
+	<!--//main-->
+	<!--footer-->
+	@await Html.PartialAsync("footerpartial")
+	<!---->
+
+	@*JS ALANI*@
+	@await Html.PartialAsync("jspartial")
+</body>
+</html>

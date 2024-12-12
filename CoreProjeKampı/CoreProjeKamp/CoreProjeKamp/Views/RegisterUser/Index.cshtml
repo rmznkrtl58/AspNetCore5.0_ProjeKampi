@@ -1,0 +1,80 @@
+﻿@using CoreProjeKamp.Models
+@model UserRegisterViewModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kayıt Paneli</title>
+
+    <link href="~/web3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/web3/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="~/web3/css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="~/web3/css/animate.css" rel="stylesheet">
+    <link href="~/web3/css/style.css" rel="stylesheet">
+</head>
+
+<body class="gray-bg">
+
+    <div class="middle-box text-center loginscreen   animated fadeInDown">
+        <div>
+            <div>
+            </div>
+            <h2>Kayıt Paneli</h2>
+            <p>Yeni Bir Hesap Oluşturun.</p>
+            <form class="m-t" role="form" method="post" action="/RegisterUser/Index/">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Adınız Soyadınız" name="NameSurname">
+                    @Html.ValidationMessageFor(x=>x.NameSurname,"",new {@class="text-danger"})
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" placeholder="E-posta Adresiniz" name="Mail">
+                    @Html.ValidationMessageFor(x => x.Mail, "", new { @class = "text-info" })
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Kullanıcı Adınız" name="UserName">
+                    @Html.ValidationMessageFor(x => x.UserName, "", new { @class = "text-primary" })
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Şifreniz" name="Password">
+                    @Html.ValidationMessageFor(x => x.Password, "", new { @class = "text-warning" })
+                </div> 
+                <div class="form-group">
+                    <input  type="password" class="form-control" placeholder="Şifre Tekrar" name="ConfirmPassword">
+                    @Html.ValidationMessageFor(x => x.ConfirmPassword, "", new { @class = "text-success" })
+                </div>
+                <div class="form-group" style="margin-top:15px" asp-validation-summary="ModelOnly">
+                </div>
+                <div class="form-group">
+                    <div class="checkbox i-checks"><label> <input type="checkbox"><i></i>Tüm Şartları Okudum Kabul Ediyorum.</label></div>
+                </div>
+                <button type="submit" class="btn btn-primary block full-width m-b">Kayıt Ol</button>
+                <a href="/Login/Index/"><p class="text-muted text-center"><small style="color:blue">Bir Hesabınız Varmı?</small></p></a>
+            </form>
+            <p class="m-t"> <small>Asp.Net Core 5.0 Proje Kampı | Tüm Hakları Saklıdır. @DateTime.Now.Year</small> </p>
+        </div>
+    </div>
+    <!-- Mainly scripts -->
+
+    <script src="~/web3/js/jquery-3.1.1.min.js"></script>
+    <script src="~/web3/js/popper.min.js"></script>
+    <script src="~/web3/js/bootstrap.js"></script>
+    <!-- iCheck -->
+    <script src="~/web3/js/plugins/iCheck/icheck.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green',
+            });
+        });
+    </script>
+</body>
+
+</html>

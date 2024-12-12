@@ -1,0 +1,66 @@
+﻿<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4 footer-grid-agileits-w3ls text-left">
+				<h3>Hakkımzda</h3>
+				<p>
+					Blog sitemiz, oyun, film, dizi, yazılım, teknoloji ve edebiyat gibi çeşitli alanlarda bilgi, eğlence ve ilham sunmayı amaçlayan bir platformdur. Güncel gelişmeleri takip eden, zengin içerikler üreten ve okuyucularımıza farklı perspektifler sunmayı hedefleyen bir ekibiz.
+				</p>
+				<div class="read">
+					<a href="/Blog/Index/" class="btn btn-primary read-m">Bloglarımız</a>
+				</div>
+			</div>
+			@await Component.InvokeAsync("FooterLast3Blogs")
+			
+
+			<!-- subscribe -->
+			@await Html.PartialAsync("~/Views/Subscribe/SubscribeMailPartial.cshtml")
+
+		</div>
+		<!-- footer -->
+		<div class="footer-cpy text-center">
+			<div class="footer-social">
+				<div class="copyrighttop">
+					<ul>
+						<li class="mx-3">
+							<a class="facebook" href="#">
+								<i class="fab fa-facebook-f"></i>
+								<span>Facebook</span>
+							</a>
+						</li>
+						<li>
+							<a class="facebook" href="#">
+								<i class="fab fa-twitter"></i>
+								<span>Twitter</span>
+							</a>
+						</li>
+						<li class="mx-3">
+							<a class="facebook" href="#">
+								<i class="fab fa-google-plus-g"></i>
+								<span>Google+</span>
+							</a>
+						</li>
+						<li>
+							<a class="facebook" href="#">
+								<i class="fab fa-pinterest-p"></i>
+								<span>Pinterest</span>
+							</a>
+						</li>
+					</ul>
+
+				</div>
+			</div>
+			<div class="w3layouts-agile-copyrightbottom">
+				<p>
+					© @DateTime.Now.Year Asp.Net Core 5.0 Kampı || Tüm Hakları Saklıdır. || Design by
+					<a href="http://w3layouts.com/">W3layouts</a>
+				</p>
+
+			</div>
+		</div>
+
+		<!-- //footer -->
+
+
+	</div>
+</footer>

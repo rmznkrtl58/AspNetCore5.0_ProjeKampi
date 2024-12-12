@@ -1,0 +1,72 @@
+﻿@using X.PagedList.Mvc.Core;
+@using X.PagedList;
+@using EntityLayer.Concrete
+@model IPagedList<Blog>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    string text = "";
+}
+<div class="row">
+    <div class="col-lg-12">
+        <div class="ibox ">
+            <div class="ibox-title">
+                <h5>Bloglar</h5>
+                <div class="ibox-tools">
+                    <a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content">
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Başlık</th>
+                            <th>Kategori</th>
+                            <th>Yazar</th>
+                            <th>Tarih</th>
+                            <th>Durum</th>
+                            <th>Pasif Yap</th>
+                            <th>Düzenle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var x in Model)
+                        {
+                            if (x.BlogStatus == false)
+                            {
+                                text = "Pasif";
+                            }
+                            if (x.BlogStatus == true)
+                            {
+                                text = "Aktif";
+                            }
+                            <tr>
+                                <td>@x.BlogId</td>
+                                <td>@x.Category.CategoryName</td>
+                                <td>Yazar gelecek</td>
+                                <td>@x.BlogTitle</td>
+                                <td>@Convert.ToDateTime(x.BlogDate).ToString("dd/MMM/yyyy")</td>
+                                <td>@text</td>
+                                <td><a href="/Admin/Blog/BlogDelete/@x.BlogId/" onclick="return confirm('Silmek İstiyormusunuz?')" class="btn btn-danger">Pasif Yap</a></td>
+                                <td><a href="/Admin/Blog/BlogEdit/@x.BlogId/" class="btn btn-warning">Düzenle</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                @Html.PagedListPager((IPagedList<Blog>)Model, page => Url.Action("Index", new { page }))
+                <a style="margin-top:8px" href="/Admin/Blog/AddBlog/" class="btn btn-primary">Yeni Blog</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+

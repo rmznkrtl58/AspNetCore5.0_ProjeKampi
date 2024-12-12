@@ -1,0 +1,13 @@
+﻿@model CoreProjeKamp.Controllers.PersonTestController.Class1
+@{
+    ViewData["Title"] = "editperson";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h3>Apilerle Güncelleme İşlemi</h3>
+<br />
+<form method="post">
+    @Html.HiddenFor(x=>x.Id)
+    @Html.TextBoxFor(x=>x.NameSurname,new{@class="form-control",@placeholder="Personel Adı Soyadı"})
+    <button style="margin-top:8px" class="btn btn-success">Güncelle</button>
+</form>
+

@@ -1,0 +1,56 @@
+﻿@model CoreProjeKamp.Models.UserUpdateViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Profil Bilgilerim</h4>
+            <br />
+            @using (Html.BeginForm("Index", "Writer", FormMethod.Post))
+            {
+             @* @Html.HiddenFor(x=>x.Id) *@
+            
+                <div class="form-group" >
+                    <label for="exampleInputName1">Yazar Ad Soyad</label>
+                    @Html.TextBoxFor(x=>x.namesurname,new{@class="form-control"})
+                    @Html.ValidationMessageFor(x => x.namesurname, "", new { @class = "text-primary" })
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">E-posta Adresi</label>
+                    @Html.TextBoxFor(x => x.mail, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.mail, "", new { @class = "text-primary" })
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword4">Kullanıcı Adı</label>
+                    @Html.TextBoxFor(x => x.username, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.username, "", new { @class = "text-primary" })
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword4">Şifre</label>
+                    @Html.TextBoxFor(x => x.password, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.password, "", new { @class = "text-primary" })
+                </div>
+                <div class="form-group">
+                    <label>Yazar Görsel</label>
+                    <input type="file" name="img[]" class="file-upload-default">
+                    <div class="input-group col-xs-12">
+                        <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                        <span class="input-group-append">
+                            <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
+                        </span>
+                    </div>
+                </div>
+               @*  <div class="form-group">
+                    <label for="exampleTextarea1">Yazar Açıklama</label>
+                   @Html.TextAreaFor(x=>x.WriterAbout,new{@class="form-control",@rows=5})
+                    @Html.ValidationMessageFor(x => x.WriterAbout, "", new { @class = "text-primary" })
+                </div> *@
+                <button  class="btn btn-gradient-primary mr-2">Güncelle</button>
+            }
+        </div>
+    </div>
+</div>
+

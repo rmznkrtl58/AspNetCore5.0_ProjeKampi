@@ -1,0 +1,44 @@
+﻿@model CoreProjeKamp.Models.WriterImageInsert
+@{
+    ViewData["Title"] = "WriterImageAdd";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Profil Bilgilerim</h4>
+            <br />
+           <form class="form-group" method="post" enctype="multipart/form-data">
+               
+                <div class="form-group">
+                    <label for="exampleInputName1">Yazar Ad Soyad</label>
+                    @Html.TextBoxFor(x => x.WriterName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.WriterName, "", new { @class = "text-primary" })
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">E-posta Adresi</label>
+                    @Html.TextBoxFor(x => x.WriterMail, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.WriterMail, "", new { @class = "text-primary" })
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword4">Şifre</label>
+                    @Html.TextBoxFor(x => x.WriterPassword, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.WriterPassword, "", new { @class = "text-primary" })
+                </div>
+                <div class="form-group">
+                    <label>Yazar Görsel</label>
+                    <input class="form-control" type="file" name="WriterImage"/>
+                </div>
+                <div class="form-group">
+                    <label for="exampleTextarea1">Yazar Açıklama</label>
+                    @Html.TextAreaFor(x => x.WriterAbout, new { @class = "form-control", @rows = 5 })
+                    @Html.ValidationMessageFor(x => x.WriterAbout, "", new { @class = "text-primary" })
+                </div>
+                <button class="btn btn-gradient-primary mr-2">Güncelle</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+

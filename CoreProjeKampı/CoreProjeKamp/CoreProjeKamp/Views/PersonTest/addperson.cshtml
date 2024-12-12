@@ -1,0 +1,13 @@
+﻿@using CoreProjeKamp.Controllers
+@using static CoreProjeKamp.Controllers.PersonTestController
+@model Class1
+@{
+    ViewData["Title"] = "addperson";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h3>Apilerde Ekleme İşlemi</h3>
+<br />
+<form class="form-group" method="post">
+<input  type="text" placeholder="Personel Adı"  class="form-control" name="NameSurname"  />
+<button style="margin-top:10px" class="btn btn-bitbucket">Kaydet</button>
+</form>

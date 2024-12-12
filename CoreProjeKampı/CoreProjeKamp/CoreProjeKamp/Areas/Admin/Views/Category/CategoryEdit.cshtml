@@ -1,0 +1,43 @@
+﻿@model EntityLayer.Concrete.Category
+@{
+    ViewData["Title"] = "CategoryEdit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="row">
+    <div class="col-lg-12">
+        <div class="ibox ">
+            <div class="ibox-title">
+                <h5 style="color:blue">Kategori Ekleme Sayfası </h5>
+                <div class="ibox-tools">
+                    <a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content">
+                <div class="row">
+                    <div class="col-sm-12 b-r">
+                        <form method="post">
+                            @Html.HiddenFor(z=>z.CategoryId)
+                            <div style="margin-top:8px">
+                                <label>Kategori Adı:</label>
+                                @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(x => x.CategoryName, "", new { @class = "text-primary" })
+                            </div>
+                            <div style="margin-top:10px">
+                                <label>Kategori Açıklaması:</label>
+                                @Html.TextAreaFor(x => x.CategoryDescription, new { @class = "form-control", @rows = 4 })
+                                @Html.ValidationMessageFor(x => x.CategoryDescription, "", new { @class = "text-primary" })
+                            </div>
+                            <button style="margin-top:10px" class="btn btn-success">Güncelle</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

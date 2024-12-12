@@ -1,0 +1,64 @@
+﻿@using EntityLayer.Concrete
+@using X.PagedList;
+@using X.PagedList.Mvc.Core;
+@model IPagedList<EntityLayer.Concrete.Category>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    string text = " ";
+}
+<div class="row">
+    <div class="col-lg-12">
+        <div class="ibox ">
+            <div class="ibox-title">
+                <h5>Kategoriler</h5>
+                <div class="ibox-tools">
+                    <a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content">
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Kategori Adı</th>
+                            <th>Durum</th>
+                            <th>Pasif Yap</th>
+                            <th>Düzenle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach(var x in Model)
+                        {
+                            if (x.CategoryStatus == false)
+                            {
+                                text = "Pasif";
+                            }
+                            if (x.CategoryStatus == true)
+                            {
+                                text = "Aktif";
+                            }
+                            <tr>
+                                <td>@x.CategoryId</td>
+                                <td>@x.CategoryName</td>
+                                <td>@text</td>
+                                <td><a href="/Admin/Category/CategoryDelete/@x.CategoryId/" onclick="return confirm('Silmek İstiyormusunuz?')" class="btn btn-danger">Pasif Yap</a></td>
+                                <td><a href="/Admin/Category/CategoryEdit/@x.CategoryId/" class="btn btn-warning">Düzenle</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                @Html.PagedListPager((IPagedList<Category>)Model, page => Url.Action("Index", new { page }))
+                <a href="/Admin/Category/AddCategory/" class="btn btn-primary">Yeni Kategori</a>
+                </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+

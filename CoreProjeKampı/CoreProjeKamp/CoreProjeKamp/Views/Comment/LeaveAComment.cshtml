@@ -1,0 +1,37 @@
+﻿<div class="comment-top">
+	<h4>Bir Yorum Bırak</h4>
+	<div class="comment-bottom">
+		<form method="post" action="/Comment/LeaveAComment">
+			<input class="form-control" type="text" id="txtname" name="UserName" placeholder="Name" required="">
+			<input class="form-control" type="email" id="txtmail"  name="CommentMail" placeholder="Email" required="">
+			<textarea class="form-control" name="CommentContent" id="txtmessage" placeholder="Message..." required="" rows="3"></textarea>
+			<button type="submit" id="btncomment" class="btn btn-primary submit">Yorum Yap</button>
+		</form>
+	</div>
+</div>
+<script src="~/lib/jquery/dist/jquery.min.js"></script> 
+@section Scripts
+{
+
+	<script>
+		@*Ajax ile yorum yapma*@
+			$("#btncomment").click(function () {
+				let values = {
+					UserName: $("#txtname").val(),//Mail->değeri veritabanındakiyle aynı olmalı
+					CommentMail: $("#txtmail").val(),//Mail->değeri veritabanındakiyle aynı olmalı
+					CommentContent: $("#txtmessage").val()//Mail->değeri veritabanındakiyle aynı olmalı
+				  //YUKARDAKİ UserName,CommentMail,CommentContent Veritabanıyla aynı olmalı
+				};
+				$.ajax(
+					{
+						type: "post",
+						url: "/Comment/LeaveAComment/",
+						data: values,//values değişkenime gelen değeri postla ekle
+						success: function (func) {
+							let result = jQuery.parseJSON(func);
+						}
+					});
+			});
+</script>
+
+}

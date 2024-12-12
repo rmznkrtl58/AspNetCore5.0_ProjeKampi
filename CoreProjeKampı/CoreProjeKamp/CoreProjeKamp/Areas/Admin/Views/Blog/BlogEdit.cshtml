@@ -1,0 +1,58 @@
+﻿@model EntityLayer.Concrete.Blog
+@{
+    ViewData["Title"] = "BlogEdit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="row">
+    <div class="col-lg-12">
+        <div class="ibox ">
+            <div class="ibox-title">
+                <h5 style="color:blue">Blog Güncelleme Sayfası </h5>
+                <div class="ibox-tools">
+                    <a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content">
+                <div class="row">
+                    <div class="col-sm-12 b-r">
+                        <form method="post">
+                            <div style="margin-top:8px">
+                                @Html.HiddenFor(x=>x.BlogId)
+                                <label>Blog Adı:</label>
+                                @Html.TextBoxFor(x => x.BlogTitle, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(x => x.BlogTitle, "", new { @class = "text-primary" })
+                            </div>
+                            <div style="margin-top:8px">
+                                <label>Kategori Seçiniz:</label>
+                                @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.c, new { @class = "form-control" })
+                            </div>
+                            <div style="margin-top:8px">
+                                <label>Yazar Seçiniz:</label>
+                                @Html.DropDownListFor(x => x.WriterId, (List<SelectListItem>)ViewBag.w, new { @class = "form-control" })
+                            </div>
+                            <div style="margin-top:8px">
+                                <label>Resim Url:</label>
+                                @Html.TextBoxFor(x => x.BlogThumbnailImage, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(x => x.BlogThumbnailImage, "", new { @class = "text-primary" })
+                            </div>
+                            <div style="margin-top:10px">
+                                <label>Blog İçerik:</label>
+                                @Html.TextAreaFor(x => x.BlogContent, new { @class = "form-control", @rows = 7 })
+                                @Html.ValidationMessageFor(x => x.BlogContent, "", new { @class = "text-primary" })
+                            </div>
+                            <button style="margin-top:10px" class="btn btn-success">Güncelle</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

@@ -1,0 +1,25 @@
+﻿@using EntityLayer.Concrete
+@model List<Notification>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+<table class="table table-bordered">
+    <tr style="color:blue">
+        <th>#</th>
+        <th>Duyuru</th>
+        <th>Tarih</th>
+    </tr>
+    <tbody>
+         @foreach(var x in Model){
+        <tr>
+        <th>@x.NotificationId</th>
+        <td>@x.NotificationDetails</td>
+        <td>@Convert.ToDateTime(x.NotificationDate).ToString("dd/MMM/yyyy")</td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+
+

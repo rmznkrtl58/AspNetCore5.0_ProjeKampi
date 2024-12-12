@@ -1,0 +1,27 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace EntityLayer.Concrete
+{
+   public class Writer
+    {
+        [Key]
+        public int WriterId { get; set; }
+        public string WriterName { get; set; }
+        public string WriterAbout { get; set; }
+        public string WriterImage { get; set; }
+        public string WriterMail { get; set; }
+        public string WriterPassword { get; set; }
+        public bool WriterStatus { get; set; }
+        //bir yazar birden fazla blog yazabilir
+        public List<Blog> Blogs { get; set; }
+        //(ÇOKA ÇOK İLİŞKİ VARDIR)
+        //Alıcı Yazar Ve Gönderen Yazar birden fazla mesaj yazabilir
+        public virtual ICollection<Message2> WriterSender { get; set; }
+        public virtual ICollection<Message2> WriterReceiver { get; set; }
+    }
+}

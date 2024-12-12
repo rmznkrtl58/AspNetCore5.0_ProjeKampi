@@ -1,0 +1,25 @@
+﻿@using EntityLayer.Concrete
+@model List<Blog>
+<div class="tech-btm">
+	<h4>Yazarın Diğer 5 Blogu</h4>
+	<div class="blog-grids row mb-3">
+		@foreach(var x in Model){
+		<div class="col-md-5 blog-grid-left">
+			<a href="/Blog/BlogReadAll/@x.BlogId/">
+				<img src="@x.BlogThumbnailImage" class="img-fluid" alt="">
+			</a>
+		</div>
+		<div class="col-md-7 blog-grid-right">
+
+			<h5>
+					<a href="/Blog/BlogReadAll/@x.BlogId/">@x.BlogTitle</a>
+			</h5>
+			<div class="sub-meta">
+				<span>
+					<i class="far fa-clock"></i> @Convert.ToDateTime(x.BlogDate).ToString("dd/MMM/yyyy")
+				</span>
+			</div>
+		</div>
+		}
+	</div>
+</div>
